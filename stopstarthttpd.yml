@@ -2,18 +2,21 @@
 - hosts: web
   become: true
   gather_facts: no
-  
+  vars:
+   basedir: /root
   tasks:
-  - name: check if http is running
+  - name: check if httpd is running
     shell:
-     cmd: systemctl status httpd
-  
+     cmd: ./check.sh
+    args:
+     chdir: "{{ basedir }}"
+     executable: /bin/bash
     register: result
   - name: Start httpd
     shell:
      cmd: systemctl start httpd
-   
-    when: result.stdout == "dead"
+    
+    when: result.stdout == "not running"
   - name: Stop httpd
     shell:
      cmd: systemctl stop httpd
