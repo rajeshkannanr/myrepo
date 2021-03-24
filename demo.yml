@@ -1,4 +1,5 @@
 - hosts: web  
+  become: yes
   name: install and start apache  
   tasks:    
    - name: install apache packages      
