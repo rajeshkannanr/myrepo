@@ -1,0 +1,21 @@
+---
+- hosts: web
+  become: true
+  gather_facts: no
+  
+  tasks:
+  - name: check if http is running
+    shell:
+     cmd: systemctl status httpd
+  
+    register: result
+  - name: Start httpd
+    shell:
+     cmd: systemctl start httpd
+   
+    when: result.stdout == "dead"
+  - name: Stop httpd
+    shell:
+     cmd: systemctl stop httpd
+    
+    when: result.stdout == "running"
