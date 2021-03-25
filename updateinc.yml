@@ -1,0 +1,15 @@
+---
+- name: Create ticket with notes
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  tasks:
+  - name: Update an incident
+    snow_record:
+     username: admin
+     password: jp3gQIIMqtD1
+     instance: dev69414
+     state: present
+     number: INC0010006
+     data:
+      work_notes: "updated by Ansible"
