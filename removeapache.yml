@@ -1,5 +1,6 @@
 - hosts: web
   become: yes
+  gather_facts: no
   name: remove apache
   tasks:
    - name: remove apache packages
