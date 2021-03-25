@@ -1,5 +1,6 @@
 - hosts: web  
   become: yes
+  gather_facts: no
   name: install and start apache  
   tasks:    
    - name: install apache packages      
