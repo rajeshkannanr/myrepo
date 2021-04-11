@@ -7,8 +7,8 @@
   - name: Create an incident
     snow_record:
      username: admin
-     password: jp3gQIIMqtD1
-     instance: dev69414
+     password: NgluVWo57OIr
+     instance: dev73825
      state: present
      data:
       short_description: "This is a test incident opened by Ansible"
